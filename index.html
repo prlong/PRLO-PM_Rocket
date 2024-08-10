@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PM_Rocket_Test Update 10-Aug</title>
+    <link type="stylesheet" href="./resource/css/index.css" rel="text/css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        #section1, #section2, #section3, #confirm-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 80px;
+        }
+
+        #bottom {
+            position: fixed;
+            width: 480px;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #reg {
+            width: 480px;
+        }
+
+        button {
+            width: 480px;
+            height: auto;
+        }
+
+        #time5555 {
+            position: fixed;
+            height: 42px;
+            bottom: 450px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #success-message, #next, #confirm-booking, #confirm {
+            position: fixed;
+            width: 520px;
+            bottom: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        #sumtext {
+            text-align: left;
+            margin: 5px 0;
+        }
+
+        #date {
+            width: 52px;
+        }
+
+        .dummy button {
+            width: 48px;
+            height: 48px;
+        }
+
+        .branchlist button {
+            width: 500px;
+            bottom: 250px;
+            margin: 5px;
+            height: 52px;
+        }
+
+        .datelist button {
+            width: 37px;
+            height: 37px;
+            margin: 3px;
+        }
+
+        .timeslotclass button {
+            width: 55px;
+            margin: 3px;
+        }
+
+        #selectbranch {
+            position: fixed;
+            bottom: 250px;
+        }
+
+        #timeslot {
+            position: fixed;
+            bottom: 250px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <h1>PM_Rocket_TestRegister</h1>
+    <span>Update 10-Aug-24</span>
+    <div id="timer" class="hidden"></div>
+    <br>
+    <div id="section1">
+        <a id="reg" href="#" onclick="startTimer(); showSection2(); return false;">
+            <img src="./resource/Img/FirstPage.JPG" alt="Register" width="480px">
+        </a>
+        <br>
+        <a id="bottom">
+            <img src="./resource/Img/bottompage.PNG" alt="bottompage" width="480px">
+        </a>
+    </div>
+
+    <div id="section2" class="hidden">
+        <div id="selectbranch">
+        <h2>Select Branch</h2>
+
+        <div class="branchlist">
+
+            <button id="terminal21"  onclick="showNext();">
+              <img src="./resource/Img/10-aug/ter21.PNG" alt="terminal21">
+            </button><br>
+
+            <button id="ladprao" class="hidden" onclick="showNext();">
+                <img src="./resource/Img/10-aug/ladprao.PNG" alt="Central Ladprao">
+              </button><br> 
+
+            <button id="siamcenter"  onclick="showNext();">
+              <img src="./resource/Img/10-aug/siam.PNG" alt="siamcenter">
+            </button><br>
+    
+            <button id="Fashion"  onclick="showNext();">
+            <img src="./resource/Img/10-aug/fashion.PNG" alt="Fashion">
+            </button><br>
+
+            <button id="Centralworld"  onclick="showNext();">
+            <img src="./resource/Img/10-aug/cenworld.PNG" alt="Centralworld">
+            </button><br>
+
+            <button id="Bangna"  onclick="showNext();">
+            <img src="./resource/Img/10-aug/mega.PNG" alt="Bangna">
+            </button><br>
+        </div>
+        </div> 
+        <br>
+        <button id="next" class="hidden" onclick="showSection3();">
+            <img src="./resource/Img/10-aug/next-button.PNG" alt="Next">
+        </button>
+    </div>
+
+    <div id="section3" class="hidden">
+        <div id="datelist" class="datelistclass">
+        <h2>Select Date</h2>
+
+         <!-- Dummy buttons that do nothing when clicked -->
+        <div class="dummy"> 
+        <button id="dummy10"  onclick="showTime();">
+          <img src="./resource/Img/date/dummy-14.PNG" alt="Dummy Date 1">
+        </button>
+
+        <button id="dummy1"  onclick="showTime();">
+          <img src="./resource/Img/date/15.png" alt="Dummy Date 1">
+        </button>
+
+        <button id="dummy2"  onclick="showTime();">
+          <img src="./resource/Img/date/16.png" alt="Dummy Date 2">
+        </button>
+
+        <button id="dummy3"  onclick="showTime();">
+        <img src="./resource/Img/date/dummy-17.png" alt="Dummy Date 3">
+        </button><br>
+        <button id="dummy4"  onclick="showTime();">
+          <img src="./resource/Img/date/dummy-21.png" alt="Dummy Date 1">
+        </button>
+
+        <button id="dummy5"  onclick="showTime();">
+          <img src="./resource/Img/date/dummy-22.PNG" alt="Dummy Date 1">
+        </button>
+
+        <button id="dummy6"  onclick="showTime();">
+          <img src="./resource/Img/date/dummy-23.PNG" alt="Dummy Date 2">
+        </button>
+
+        <button id="dummy7"  onclick="showTime();">
+        <img src="./resource/Img/date/dummy-24.PNG" alt="Dummy Date 3">
+        </button><br>
+        </div>
+        </div> 
+        <br>
+
+        <!-- Timeslot -->
+        <div id="timeslot" class="timeslotclass">
+        <div class="timelist">    
+        <button id="time11" class="hidden" onclick="showConfirm();">
+            <img src="./resource/Img/time/10-30.png" alt="Time">
+        </button>
+        <button id="time22" class="hidden" onclick="showConfirm();">
+            <img src="./resource/Img/time/11-00.png" alt="Time">
+        </button>
+        <button id="time33" class="hidden" onclick="showConfirm();">
+            <img src="./resource/Img/time/11-30.png" alt="Time">
+        </button><br>
+        <button id="time1" class="hidden" onclick="showConfirm();">
+            <img src="./resource/Img/time/12-00.png" alt="Time">
+        </button>
+        <button id="time2" class="hidden" onclick="showConfirm();">
+            <img src="./resource/Img/time/12-30.png" alt="Time">
+        </button>
+        <button id="time3" class="hidden" onclick="showConfirm();">
+            <img src="./resource/Img/time/13-00.png" alt="Time">
+        </button><br>
+        <button id="time4" class="hidden" onclick="showConfirm();">
+            <img src="./resource/Img/time/13-30.png" alt="Time">
+        </button>
+        <button id="time5" class="hidden" onclick="showConfirm();">
+            <img src="./resource/Img/time/14-00.png" alt="Time">
+        </button>
+        <button id="time6" class="hidden" onclick="showConfirm();">
+            <img src="./resource/Img/time/15-30.png" alt="Time">
+        </button>
+        </div>
+        </div>
+        <br>
+
+        <!-- ConfirmButton -->
+        <button id="confirm" class="hidden" onclick="showConfirmSection();">
+            <img src="./resource/Img/Backup/6-confirm.PNG" alt="Confirm">
+        </button><br>
+    </div>
+
+    <div id="confirm-section" class="hidden">
+        <div id="sumtext">
+        <h2 id="summary">Confirm Information</h2><br>
+        <h3>Event:</h3>
+        <p>10 Aug POP MART Store Registration</p>
+        <h3>Full Name</h3>
+        <p>TestFirstName TestLastName</p>
+        <h3>Booking Time:</h3>
+        <p>2024-08-10 (12:00)</p>
+        <h3>Branch</h3>
+        <p>Central Ladprao</p><br>
+        </div>
+    <br>
+        <label>
+            <input type="checkbox" id="accept-checkbox" onclick="toggleConfirmBooking();"> ยอมรับเงื่อนไข
+        </label>
+        <br>
+        <button id="confirm-booking" class="hidden" onclick="showSuccess();">
+            <img src="./resource/Img/confirm_booking.png" alt="Confirm-booking">
+        </button><br>
+        <img src="./resource/Img/cloudflare-complete.PNG">
+    </div>
+
+    <h2 id="success-message" class="hidden">สำเร็จ</h2>
+
+    <script>
+        let startTime;
+
+        function startTimer() {
+            startTime = new Date();
+            document.getElementById('timer').classList.remove('hidden');
+        }
+
+        function getRandomDelay(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        function showSection2() {
+            document.getElementById('section1').classList.add('hidden');
+            setTimeout(function() {
+                document.getElementById('section2').classList.remove('hidden');
+                document.getElementById('ladprao').classList.remove('hidden');
+            }, getRandomDelay(400, 700)); // หน่วงเวลาแบบสุ่ม 0.6 - 2.2 วินาที
+        }
+
+        function showNext() {
+            setTimeout(function() {
+                document.getElementById('next').classList.remove('hidden');
+            }, getRandomDelay(200, 500)); // หน่วงเวลาแบบสุ่ม 0.5 - 0.7 วินาที
+        }
+
+        function showSection3() {
+            document.getElementById('section2').classList.add('hidden');
+            setTimeout(function() {
+                document.getElementById('section3').classList.remove('hidden');
+                document.getElementById('date').classList.remove('hidden');
+            }, getRandomDelay(300, 600)); // หน่วงเวลาแบบสุ่ม 0.9 - 1.7 วินาที
+        }
+
+        function showTime() {
+            setTimeout(function() {
+                document.getElementById('time11').classList.remove('hidden');
+                document.getElementById('time22').classList.remove('hidden');
+                document.getElementById('time33').classList.remove('hidden');
+                document.getElementById('time1').classList.remove('hidden');
+                document.getElementById('time2').classList.remove('hidden');
+                document.getElementById('time3').classList.remove('hidden');
+                document.getElementById('time4').classList.remove('hidden');
+                document.getElementById('time5').classList.remove('hidden');
+                document.getElementById('time6').classList.remove('hidden');
+            }, getRandomDelay(200, 400)); // หน่วงเวลาแบบสุ่ม 0.5 - 0.7 วินาที
+        }
+
+        function showConfirm() {
+            setTimeout(function() {
+                document.getElementById('confirm').classList.remove('hidden');
+            }, getRandomDelay(200, 400)); // หน่วงเวลาแบบสุ่ม 0.4 - 0.7 วินาที
+        }
+
+        function showConfirmSection() {
+            document.getElementById('section3').classList.add('hidden');
+            setTimeout(function() {
+                document.getElementById('confirm-section').classList.remove('hidden');
+            }, getRandomDelay(200, 400)); // หน่วงเวลาแบบสุ่ม 0.4 - 0.7 วินาที
+        }
+
+        function toggleConfirmBooking() {
+            const checkbox = document.getElementById('accept-checkbox');
+            const confirmButton = document.getElementById('confirm-booking');
+            if (checkbox.checked) {
+                confirmButton.classList.remove('hidden');
+            } else {
+                confirmButton.classList.add('hidden');
+            }
+        }
+
+        function showSuccess() {
+            document.getElementById('confirm-section').classList.add('hidden');
+            setTimeout(function() {
+                document.getElementById('success-message').classList.remove('hidden');
+                const endTime = new Date();
+                const timeDiff = (endTime - startTime) / 1000; // in seconds
+                alert(`Total time: ${timeDiff} seconds`);
+            }, getRandomDelay(200, 400)); // หน่วงเวลาแบบสุ่ม 0.4 - 0.7 วินาที
+        }
+    </script>
+</body>
+</html>
